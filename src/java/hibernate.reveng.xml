@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="moviesdb"/>
+  <table-filter match-name="customers_rentals"/>
+  <table-filter match-name="genres"/>
+  <table-filter match-name="users"/>
+  <table-filter match-name="movie_cast"/>
+  <table-filter match-name="stores"/>
+  <table-filter match-name="customers"/>
+  <table-filter match-name="transaction_types"/>
+  <table-filter match-name="actors"/>
+  <table-filter match-name="rentals"/>
+  <table-filter match-name="movies"/>
+  <table-filter match-name="payments"/>
+  <table-filter match-name="accounts"/>
+  <table-filter match-name="formats"/>
+</hibernate-reverse-engineering>

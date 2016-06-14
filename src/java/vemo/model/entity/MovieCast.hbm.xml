@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 28, 2015 1:49:58 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="vemo.model.entity.MovieCast" table="movie_cast" catalog="moviesdb">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="movies" class="vemo.model.entity.Movies" fetch="select">
+            <column name="movie_id" />
+        </many-to-one>
+        <many-to-one name="actors" class="vemo.model.entity.Actors" fetch="select">
+            <column name="actor_id" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 28, 2015 1:49:58 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="vemo.model.entity.Movies" table="movies" catalog="moviesdb">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="formats" class="vemo.model.entity.Formats" fetch="select">
+            <column name="format_id" />
+        </many-to-one>
+        <many-to-one name="stores" class="vemo.model.entity.Stores" fetch="select">
+            <column name="store_id" />
+        </many-to-one>
+        <many-to-one name="genres" class="vemo.model.entity.Genres" fetch="select">
+            <column name="genre_id" />
+        </many-to-one>
+        <property name="releaseYear" type="java.lang.Integer">
+            <column name="release_year" />
+        </property>
+        <property name="title" type="string">
+            <column name="title" length="100" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="65535" />
+        </property>
+        <property name="stock" type="java.lang.Integer">
+            <column name="stock" />
+        </property>
+        <property name="rentalOrSale" type="string">
+            <column name="rental_or_sale" length="50" />
+        </property>
+        <property name="rentalDailyRate" type="java.lang.Integer">
+            <column name="rental_daily_rate" />
+        </property>
+        <property name="price" type="java.lang.Integer">
+            <column name="price" />
+        </property>
+        <set name="movieCasts" table="movie_cast" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="movie_id" />
+            </key>
+            <one-to-many class="vemo.model.entity.MovieCast" />
+        </set>
+        <set name="rentalses" table="rentals" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="movie_id" />
+            </key>
+            <one-to-many class="vemo.model.entity.Rentals" />
+        </set>
+    </class>
+</hibernate-mapping>

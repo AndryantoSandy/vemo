@@ -1,0 +1,16 @@
+body,#header{
+	background-color: #666;
+}
+
+
+#header{
+	border-bottom: 1px solid #666;
+}
+
+.panel{
+	border: 1px solid #fff;
+}
+
+#footer, #footer a{
+	color: #fff;	
+}

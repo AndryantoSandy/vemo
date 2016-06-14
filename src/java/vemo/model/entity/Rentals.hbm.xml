@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 28, 2015 1:49:58 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="vemo.model.entity.Rentals" table="rentals" catalog="moviesdb">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="customers" class="vemo.model.entity.Customers" fetch="select">
+            <column name="customer_id" />
+        </many-to-one>
+        <many-to-one name="movies" class="vemo.model.entity.Movies" fetch="select">
+            <column name="movie_id" />
+        </many-to-one>
+        <property name="status" type="java.lang.Integer">
+            <column name="status" />
+        </property>
+        <property name="dateOut" type="date">
+            <column name="date_out" length="10" />
+        </property>
+        <property name="dateReturned" type="date">
+            <column name="date_returned" length="10" />
+        </property>
+        <property name="amount" type="java.lang.Integer">
+            <column name="amount" />
+        </property>
+        <set name="customersRentalses" table="customers_rentals" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="rental_id" />
+            </key>
+            <one-to-many class="vemo.model.entity.CustomersRentals" />
+        </set>
+    </class>
+</hibernate-mapping>
